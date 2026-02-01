@@ -2,7 +2,7 @@
 Program to prepare input files for generate_nebular_emission from hdf5 files
 """
 
-from src.config_shark import get_config
+from src.config import get_config
 from src.validate import validate_hdf5_file
 from src.generate_input import generate_input_file
 from src.generate_test_files import generate_test_files
@@ -11,21 +11,16 @@ verbose = True
 
 validate_files = True  # Check the structure of files
 generate_files = False # Generate input for generate_nebular_emission
-generate_testing_files = True # Generate reduced input for testing
+generate_testing_files = False # Generate reduced input for testing
 
 #-------------------------------------------------------------
-# sim = 'SUNIT_PNG100'
-# snap = 103
-# subvols = [42] #list(range(64))
+sim = 'SharkUNIT1Gpc_fnl100'
+snap = 103
+subvols = list(range(64))
 #-------------------------------------------------------------
-sim = 'SU_UNIT' #'GP20UNIT1Gpc_fnl100' 
-snap = 104
-subvols = [42] #list(range(64))
-#-------------------------------------------------------------
-# sim = 'SUNIT_GPC' # Set the file configuration adequately 
-# snap = 104 
+# sim = 'SharkSU_1'
+# snap = 104
 # subvols = list(range(64))
-#-------------------------------------------------------------
 
 laptop = True  # Tests within laptop (different paths)
 if laptop:

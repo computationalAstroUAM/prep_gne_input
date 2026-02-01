@@ -4,7 +4,6 @@ Configuration of files to be read
 import src.utils as u
 import numpy as np
 from src.config_shark import sims_shark, get_SharkSU_config, get_SharkUNIT1Gpc_config
-from src.config_shark import ge
 
 sims = ['GP20cosma','GP20SU','GP20UNIT1Gpc'] + sims_shark
 
