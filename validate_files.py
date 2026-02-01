@@ -4,6 +4,14 @@ from src.prep_input import prep_input
 verbose = True
 nvol = 64
 
+# Shark in taurus
+taurus_sims_GP20 = [
+    ('SharkSU_1', [109, 104, 98, 90, 87, 128, 96, 78], list(range(nvol))),
+    ('SharkSU_2', [109, 104, 98, 90, 87], list(range(nvol))),
+    ('SharkUNIT1Gpc_fnl0', [98, 109, 87, 90, 104], list(range(nvol))),
+    ('SharkUNIT1Gpc_fnl100', [127, 108, 103, 97, 95, 89, 86, 77], list(range(nvol))),
+]
+
 # Galform in taurus
 taurus_sims_GP20 = [
     ('GP20SU_1', [109, 104, 98, 90, 87, 128, 96, 78], list(range(nvol))),
