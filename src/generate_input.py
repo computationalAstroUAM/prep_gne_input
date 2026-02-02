@@ -118,6 +118,11 @@ def generate_input_file(config, ivol, verbose=False):
     mcold_burst = config['mcold_burst']
     mcold_z_burst = config['mcold_z_burst']
 
+    # Stellar mass variables
+    mstar_burst = config.get('mstar_burst', 'mstar_burst')
+    mstars_burst_diskinstabilities = config.get('mstars_burst_diskinstabilities', 'mstars_burst_diskinstabilities')
+    mstars_burst_mergers = config.get('mstars_burst_mergers', 'mstars_burst_mergers')
+
     # Extract redshift, if exist
     if "file_redshift" in config:
         file_redshift = config['file_redshift']
@@ -151,6 +156,12 @@ def generate_input_file(config, ivol, verbose=False):
         calc_Zbst  = set([mcold_burst,mcold_z_burst]).issubset(datasets)
         if calc_Zbst:
             Zbst = np.ones(len(mask), dtype=float)
+
+        # Check if mstar_burst need to be calculated
+        mstar_burst_components = {mstar_burst, mstars_burst_diskinstabilities, mstars_burst_mergers}
+        calc_MStarBurst = not mstar_burst_components.isdisjoint(datasets)
+        if calc_MStarBurst:
+            MStarBurst = np.zeros(len(mask), dtype=float)
 
         # Check if magnitudes are included
         calc_mag = any('mag' in s for s in datasets)
@@ -217,6 +228,9 @@ def generate_input_file(config, ivol, verbose=False):
                         vals = vals[mask]
                     if vals is None: continue
 
+                    if calc_MStarBurst and (prop in [mstar_burst, mstars_burst_diskinstabilities, mstars_burst_mergers]):
+                        MStarBurst += vals
+
                     if calc_Zdisc and (prop==mcold_disc or prop==mcold_z_disc):
                         if prop==mcold_disc:
                             Zdisc[vals<=0.] = 0.
@@ -257,6 +271,12 @@ def generate_input_file(config, ivol, verbose=False):
             with h5py.File(outfile, 'a') as outf:
                 dd = outf['data'].create_dataset('Zgas_bst', data=Zbst)
                 dd.attrs['units'] = 'M_Z/M'
+
+        # Write stellar mass, if required
+        if calc_MStarBurst:
+            with h5py.File(outfile, 'a') as outf:
+                dd = outf['data'].create_dataset(mstar_burst, data=MStarBurst)
+                dd.attrs['units'] = 'Msun/h'
         
         # Write luminosity ratios, if required
         if calc_ratios:
