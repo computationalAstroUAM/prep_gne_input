@@ -10,17 +10,17 @@ from src.generate_test_files import generate_test_files
 verbose = True
 
 validate_files = True  # Check the structure of files
-generate_files = False # Generate input for generate_nebular_emission
+generate_files = True # Generate input for generate_nebular_emission
 generate_testing_files = False # Generate reduced input for testing
 
 #-------------------------------------------------------------
-sim = 'SharkUNIT1Gpc_fnl100'
-snap = 103
-subvols = list(range(64))
-#-------------------------------------------------------------
-# sim = 'SharkSU_1'
-# snap = 104
+# sim = 'SharkUNIT1Gpc_fnl100'
+# snap = 103
 # subvols = list(range(64))
+#-------------------------------------------------------------
+sim = 'SharkSU_1'
+snap = 104
+subvols = list(range(64))
 
 laptop = True  # Tests within laptop (different paths)
 if laptop:
