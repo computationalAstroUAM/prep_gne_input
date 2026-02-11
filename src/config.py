@@ -513,10 +513,10 @@ def get_SharkSU_config(snap, subvols, cosmo_var='1', laptop=False, verbose=False
             'group': 'galaxies',
             'datasets': [
                 'mvir_hosthalo', # mhhalo
-                'position_x', 'position_y', 'position_z'],
-            'units': ['Msun/h', 'Mpc/h', 'Mpc/h', 'Mpc/h'],
-            'low_limits': [20 * config['mp'], 0., 0., 0.],
-            'high_limits': [None, boxside, boxside, boxside]
+                ],
+            'units': ['Msun/h'],
+            'low_limits': [20 * config['mp']],
+            'high_limits': [None]
         }
     }
      # Define the lines and luminosity names
@@ -662,10 +662,10 @@ def get_SharkUNIT1Gpc_config(snap, subvols, cosmo_var='fnl0', laptop=False, verb
             'group': 'galaxies',
             'datasets': [
                 'mvir_hosthalo', # mhhalo
-                'position_x', 'position_y', 'position_z'],
-            'units': ['Msun/h', 'Mpc/h', 'Mpc/h', 'Mpc/h'],
-            'low_limits': [20 * config['mp'], 0., 0., 0.],
-            'high_limits': [None, boxside, boxside, boxside]
+                ],
+            'units': ['Msun/h'],
+            'low_limits': [20 * config['mp']],
+            'high_limits': [None]
         }
     }
      # Define the lines and luminosity names
