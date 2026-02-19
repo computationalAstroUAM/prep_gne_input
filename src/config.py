@@ -202,9 +202,12 @@ def get_GP20SU_config(snap, subvols, cosmo_var='1', laptop=False, verbose=False)
     else: # SU2
         ln_As = ln_As + np.log(1.05)
         outpath = '/home2/vgonzalez/Data/Galform/SU2/'
-        dirs = ['/data2/users/olivia/galform_output/SU2/SU2_250MPC_np_corrected/']
+        dirs = ['/data2/users/olivia/galform_output/SU2/SU2_250MPC_np_corrected/',
+                '/data2/users/olivia/galform_output/SU2/SU2_z_tests/']
         if snap in [109, 104, 98, 90, 87]:
             path = dirs[0]
+        elif snap in [128, 96, 78]:
+            path = dirs[1]
         else:
             raise ValueError(f"Check that the snapshot {snap} is",
                              f" within the directories {dirs}")
