@@ -500,7 +500,7 @@ def get_SharkSU_config(snap, subvols, cosmo_var='1', laptop=False, verbose=False
         'omegab': 0.0486,
         'lambda0': 0.6911,
         'boxside': boxside,
-        'mp': 0,  # Msun/h
+        'mp': 1.558975e8,  # Msun/h
 
         # Metallicity calculation parameters
         'mcold_disc': 'mgas_disk',
@@ -649,7 +649,7 @@ def get_SharkUNIT1Gpc_config(snap, subvols, cosmo_var='fnl0', laptop=False, verb
         'omegab': 0.0486,
         'lambda0': 0.6911,
         'boxside': boxside,
-        'mp': 0,  # Msun/h
+        'mp':  1.24718e9,  # Msun/h
 
         # Metallicity calculation parameters
         'mcold_disc': 'mgas_disk',
