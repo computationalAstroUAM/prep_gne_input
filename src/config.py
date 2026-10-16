@@ -189,7 +189,7 @@ def get_GP20SU_config(snap, subvols, cosmo_var='1', laptop=False, verbose=False)
     
     # Path to files
     if cosmo_var is None or cosmo_var == '1': # SU1
-        outpath = '/home2/vgonzalez/Data/Galform/SU1/'
+        outpath = '/data21/users/vgonzalez/Data/Galform/SU1/'
         dirs = ['/data2/users/olivia/galform_output/SU1/SU1_250MPC_np_corrected/',
                 '/data2/users/olivia/galform_output/SU1/SU1_z_tests/']
         if snap in [109, 104, 98, 90, 87]:
@@ -201,9 +201,9 @@ def get_GP20SU_config(snap, subvols, cosmo_var='1', laptop=False, verbose=False)
                              f" within the directories {dirs}")
     else: # SU2
         ln_As = ln_As + np.log(1.05)
-        outpath = '/home2/vgonzalez/Data/Galform/SU2/'
+        outpath = '/data21/users/vgonzalez/Data/Galform/SU2/'
         dirs = ['/data2/users/olivia/galform_output/SU2/SU2_250MPC_np_corrected/',
-                '/data2/users/olivia/galform_output/SU2/SU2_z_tests/']
+               '/data2/users/olivia/galform_output/SU2/SU2_z_tests/']
         if snap in [109, 104, 98, 90, 87]:
             path = dirs[0]
         elif snap in [128, 96, 78]:
@@ -333,7 +333,7 @@ def get_GP20UNIT1Gpc_config(snap, subvols, cosmo_var='fnl0',
     
     # Path to files
     if cosmo_var is None or cosmo_var == 'fnl0':
-        outpath = '/home2/vgonzalez/Data/Galform/UNIT1GPC_fnl0/'
+        outpath = '/data21/users/vgonzalez/Data/Galform/UNIT1GPC_fnl0/'
         dirs = ['/data2/users/olivia/galform_output/UNIT_PNG/LRG_1_and_3/',
                 '/data2/users/olivia/galform_output/UNIT_PNG/UNIT_1GPC/']
         if snap in [98,109]:
@@ -345,7 +345,7 @@ def get_GP20UNIT1Gpc_config(snap, subvols, cosmo_var='fnl0',
                              f" within the directories {dirs}")
     else:
         fnl = 100
-        outpath = '/home2/vgonzalez/Data/Galform/UNIT1GPC_fnl100/'
+        outpath = '/data21/users/vgonzalez/Data/Galform/UNIT1GPC_fnl100/'
         path = '/data2/users/olivia/galform_output/UNIT_PNG100/UNITPNG100_1GPC/'
         
     ending = 'iz'+str(snap)
